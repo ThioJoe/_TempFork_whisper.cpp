@@ -217,6 +217,7 @@ jobs:
 
       - name: Upload binaries
         if: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/master') ||
+                github.event_name == 'workflow_dispatch' ||
                 github.event.inputs.create_release == 'true' ||
                 github.event.inputs.pre_release_tag != '' }}
         uses: actions/upload-artifact@v4
